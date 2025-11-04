@@ -4,17 +4,19 @@ version '1.0'
 buildscript {
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath("com.android.tools.build:gradle:8.9.1")
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
 }
@@ -23,10 +25,12 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'com.amap.flutter.amap_flutter_map'
-    compileSdkVersion 29
+
+    compileSdk = 36
+
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 24
     }
     lintOptions {
         disable 'InvalidPackage'
