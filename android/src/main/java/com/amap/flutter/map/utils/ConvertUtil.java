@@ -30,7 +30,7 @@ import java.util.Map;
 
 import androidx.annotation.NonNull;
 
-import io.flutter.embedding.engine.loader.FlutterLoader;   // ← 新 API
+import io.flutter.FlutterInjector;
 
 /**
  * @author whm
@@ -373,16 +373,16 @@ public class ConvertUtil {
             case "fromAsset":
                 if (data.size() == 2) {
                     return BitmapDescriptorFactory.fromAsset(
-                            new FlutterLoader().getLookupKeyForAsset(toString(data.get(1))));   // ← 替换
+                            FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(toString(data.get(1))));   // ← 替换
                 } else {
                     return BitmapDescriptorFactory.fromAsset(
-                            new FlutterLoader().getLookupKeyForAsset(toString(data.get(1)),
+                            FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(toString(data.get(1)),
                                     toString(data.get(2))));                                   // ← 替换
                 }
             case "fromAssetImage":
                 if (data.size() == 3) {
                     return BitmapDescriptorFactory.fromAsset(
-                            new FlutterLoader().getLookupKeyForAsset(toString(data.get(1))));   // ← 替换
+                            FlutterInjector.instance().flutterLoader().getLookupKeyForAsset(toString(data.get(1))));   // ← 替换
                 } else {
                     throw new IllegalArgumentException(
                             "'fromAssetImage' Expected exactly 3 arguments, got: " + data.size());
